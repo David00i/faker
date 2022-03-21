@@ -29,8 +29,8 @@ export class Name {
    */
   firstName(gender?: string | number): string {
     if (
-      typeof this.faker.definitions.name.male_first_name !== 'undefined' &&
-      typeof this.faker.definitions.name.female_first_name !== 'undefined'
+      this.faker.definitions.name.male_first_name != null &&
+      this.faker.definitions.name.female_first_name != null
     ) {
       // some locale datasets ( like ru ) have first_name split by gender. since the name.first_name field does not exist in these datasets,
       // we must randomly pick a name from either gender array so faker.name.firstName will return the correct locale data ( and not fallback )
@@ -44,7 +44,7 @@ export class Name {
       }
 
       if (typeof gender !== 'number') {
-        if (typeof this.faker.definitions.name.first_name === 'undefined') {
+        if (this.faker.definitions.name.first_name == null) {
           gender = this.faker.datatype.number(1);
         } else {
           // Fall back to non-gendered names if they exist and gender wasn't specified
@@ -84,8 +84,8 @@ export class Name {
    */
   lastName(gender?: string | number): string {
     if (
-      typeof this.faker.definitions.name.male_last_name !== 'undefined' &&
-      typeof this.faker.definitions.name.female_last_name !== 'undefined'
+      this.faker.definitions.name.male_last_name != null &&
+      this.faker.definitions.name.female_last_name != null
     ) {
       // some locale datasets ( like ru ) have last_name split by gender. i have no idea how last names can have genders, but also i do not speak russian
       // see above comment of firstName method
@@ -123,8 +123,8 @@ export class Name {
    */
   middleName(gender?: string | number): string {
     if (
-      typeof this.faker.definitions.name.male_middle_name !== 'undefined' &&
-      typeof this.faker.definitions.name.female_middle_name !== 'undefined'
+      this.faker.definitions.name.male_middle_name != null &&
+      this.faker.definitions.name.female_middle_name != null
     ) {
       if (typeof gender !== 'number') {
         gender = this.faker.datatype.number(1);
@@ -247,8 +247,8 @@ export class Name {
    */
   prefix(gender?: string | number): string {
     if (
-      typeof this.faker.definitions.name.male_prefix !== 'undefined' &&
-      typeof this.faker.definitions.name.female_prefix !== 'undefined'
+      this.faker.definitions.name.male_prefix != null &&
+      this.faker.definitions.name.female_prefix != null
     ) {
       if (typeof gender !== 'number') {
         gender = this.faker.datatype.number(1);

@@ -30,7 +30,7 @@ export class _Date {
    */
   past(years?: number, refDate?: string): Date {
     let date = new Date();
-    if (typeof refDate !== 'undefined') {
+    if (refDate != null) {
       date = new Date(Date.parse(refDate));
     }
 
@@ -61,7 +61,7 @@ export class _Date {
    */
   future(years?: number, refDate?: string): Date {
     let date = new Date();
-    if (typeof refDate !== 'undefined') {
+    if (refDate != null) {
       date = new Date(Date.parse(refDate));
     }
 
@@ -113,7 +113,7 @@ export class _Date {
    * // [ 2023-05-02T16:00:00.000Z, 2026-09-01T08:00:00.000Z ]
    */
   betweens(from: string, to: string, num?: number): Date[] {
-    if (typeof num === 'undefined') {
+    if (num == null) {
       num = 3;
     }
     const newDates: Date[] = [];
@@ -145,7 +145,7 @@ export class _Date {
    */
   recent(days?: number, refDate?: string): Date {
     let date = new Date();
-    if (typeof refDate !== 'undefined') {
+    if (refDate != null) {
       date = new Date(Date.parse(refDate));
     }
 
@@ -176,7 +176,7 @@ export class _Date {
    */
   soon(days?: number, refDate?: string): Date {
     let date = new Date();
-    if (typeof refDate !== 'undefined') {
+    if (refDate != null) {
       date = new Date(Date.parse(refDate));
     }
 
@@ -212,12 +212,12 @@ export class _Date {
     const source = this.faker.definitions.date.month;
     let type: keyof DateEntryDefinition;
     if (abbr) {
-      if (context && typeof source['abbr_context'] !== 'undefined') {
+      if (context && source['abbr_context'] != null) {
         type = 'abbr_context';
       } else {
         type = 'abbr';
       }
-    } else if (context && typeof source['wide_context'] !== 'undefined') {
+    } else if (context && source['wide_context'] != null) {
       type = 'wide_context';
     } else {
       type = 'wide';
@@ -246,12 +246,12 @@ export class _Date {
     const source = this.faker.definitions.date.weekday;
     let type: keyof DateEntryDefinition;
     if (abbr) {
-      if (context && typeof source['abbr_context'] !== 'undefined') {
+      if (context && source['abbr_context'] != null) {
         type = 'abbr_context';
       } else {
         type = 'abbr';
       }
-    } else if (context && typeof source['wide_context'] !== 'undefined') {
+    } else if (context && source['wide_context'] != null) {
       type = 'wide_context';
     } else {
       type = 'wide';

@@ -412,7 +412,7 @@ export class Helpers {
    * faker.helpers.shuffle(['a', 'b', 'c']) // [ 'b', 'c', 'a' ]
    */
   shuffle<T>(o?: T[]): T[] {
-    if (typeof o === 'undefined' || o.length === 0) {
+    if (o == null || o.length === 0) {
       return o || [];
     }
 
@@ -481,7 +481,7 @@ export class Helpers {
       string | ((substring: string, ...args: any[]) => string)
     >
   ): string {
-    if (typeof str === 'undefined') {
+    if (str == null) {
       return '';
     }
     for (const p in data) {
